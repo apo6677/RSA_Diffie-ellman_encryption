@@ -1,0 +1,38 @@
+rsa_assign_1:
+
+1) key generation:
+The user inputs two prime numbers, p and n, please ensure that n and p are large numbers because the algorithm does not seem to work for small pairs of primes such as 2 or 7. Then e is randomly generated using function srand(time(NULL)). time(NULL) is used as a seed of randomness. A process follows to make public key which is consisted from n, e and the private key which is consisted 
+from n, d.
+
+Public and Private keys are stored in file Public.key and Private.key respectively.
+
+2)Encryption:
+Happens by opening file Public.key, getting the public key.
+Afterwards the file plaintext.txt in which the plaintext is stored is opened and the ascii numbers of each character are read. Then the ascii number is processed: ((ascii)^e)mod(n) and stored
+at ciphertext.txt after is is cast as an unsigned long int of 8 bytes each. This process happens to each of the plaintext characters one by one.
+
+3)Decryption:
+File Private.key is opened and private key is restored. Then the file ciphertext.txt in which ciphertext is stored is opened and each of the cipher unsigned long integers are recovered
+and processed: ((cipher)^e)mod(n) and the original ascii number is recovered. Then the numbers are cast into char taking up 1 byte each and stored at file processed_plaintext.txt.
+This process happens to each of the cipher numbers one by one.
+
+
+The tool is compiled by using gcc at a MAKEFILE and typing make at command line, returns no errors.
+
+dh_assign_1:
+
+The user inputs prime number p, base g, user's A private key a and user's B private key b.
+Then A and B are computed as: A = (g^a)mod(p), B = (g^b)mod(p) .
+Afterwards S1 and S2 are computed: S1 = (B^a)mod(p), S2 = (A^b)mod(p) .
+Finaly S1 is compared to S2 in order to make sure everything worked fluently.
+
+
+The tool is compiled by using gcc at a MAKEFILE and typing make at command line, returns no errors.
+
+
+
+
+
+
+AM: 2019030011
+NAME: GEORGIOS APOLLON TAOUXIS
